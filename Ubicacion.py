@@ -4,6 +4,7 @@ class Ubicacion():
 		self._indice = indice
 		self._lapidaent = lapidaent
 		self._estado = estado
+		
 	def modificarUbicacion(self, indice):
-		self._indice=indice
+		self._indice = indice
 	
