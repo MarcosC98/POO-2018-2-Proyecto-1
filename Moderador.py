@@ -1,6 +1,10 @@
 class Moderador(Persona):
 
-	def __init__ (self):
-		super()
+	Moderadores{}
 
-	def registrarModerador(self,)
+	def __init__ (self):
+		pass
+
+	def registrarModerador(self,contrasena,clientesModerados[]):
+		Moderadores[] = 
+
