@@ -1,5 +1,5 @@
-class ubicacion(object):
-	"""docstring for ubicacion"""
+class Ubicacion():
+
 	def __init__(self, indice, lapidaent, estado):
 		super(ubicacion, self).__init__()
 		self._indice = indice
