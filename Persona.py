@@ -21,6 +21,7 @@ class Persona():
 	def __init__(self):
 		Texto.setIdiom()
 		
+		
 		if(contrasena[])
 
 
