@@ -2,6 +2,7 @@ import datetime
 class memoria:
 	memorias_totales = []
 	id = 0
+	
 	def __init__(self,personaNombre,descripcion.difuntoNombre):
 		self._personaNombre = personaNombre
 		self._descripcion = descripción

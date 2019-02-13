@@ -15,8 +15,12 @@ class Texto:
 			print("¿Es ud usuario?")#Se espera que si es usuario tenga contraseña y pues que se pueda validar.
 			print("")
 			print("")
+			print("Se determina el rol y ")
+			print("")
+			print("")
+
 		else:
-			
+
 
 
 
@@ -36,7 +40,7 @@ class Texto:
 		print("")
 
 	@staticmethod
-	def datoInvalido():
+	def datoInvalido():#Todo este método es para imprimir cuando el usuario ingrese datos invalidos.
 		if Persona.idiom()==1:
 			print("")
 		    print("El dato que usted ha ingresado es inválido, repita el proceso")
