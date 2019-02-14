@@ -24,7 +24,7 @@ class Texto:
 
 
 
-	@staticmethod
+	#@staticmethod
 	def setIdiom():
 		print("")
 		print("")

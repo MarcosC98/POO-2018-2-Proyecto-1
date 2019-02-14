@@ -1,25 +1,22 @@
-import ubicacion
+from Persona import Persona
 class Lapida:
 	lapidas_totales = []#Lista con todas las lápidas generadas	
 
 
-	def __init__(self,idCliente,nombreCliente,fechaNac,fechaDef=0,epitafio="",privacidad,idUbicacion): #Constructor de clase lapida
-		self _fechaDef = fechaDef	#fecha defuncion, se inicia en 0 ya que un cliente puede tener una lapida sin haber fallecido
-		self _epitafio = epitafio	#epitafio. En el constructor se inicia vacío ya que hay lapidas sin epitafios
-		self _privacidad = privacidad	#Es un boolean con true = privada y false = publica
-		self _idCliente = idCliente	#Se asocia al cliente con su ID
-		self _nombrecli = nombreCliente		#Se guarda tambien el nombre del cliente
-		self _fechaNac = fechaNac 	#Se guarda la fecha de nacimiento del cliente
-		self _idUbicacion = idUbicacion	#Se asocia la ubicación con su ID
-		self _moderadores = moderadores [] 	#Se genera lista para que guarde cada moderador que realice algún cambio
-		self _memorias = memorias[]	#Se genera la lista que guarde las memorias que sean dejadas en la lapida
+	def __init__(self,persona,privacidad,ubicacion,fechaDef="",epitafio=""): #Constructor de clase lapida
+		self._fechaDef = fechaDef	#fecha defuncion, se inicia en 0 ya que un cliente puede tener una lapida sin haber fallecido
+		self._epitafio = epitafio	#epitafio. En el constructor se inicia vacío ya que hay lapidas sin epitafios
+		self._privacidad = privacidad	#Es un boolean con true = privada y false = publica
+		self._persona = persona
+		self._ubicacion = ubicacion	#Se asocia la ubicación con su ID
+		self.moderadores = [] 	#Se genera lista para que guarde cada moderador que realice algún cambio
+		self.memorias = []	#Se genera la lista que guarde las memorias que sean dejadas en la lapida
 		Lapida.lapidas_totales.append(self)		#Se envía la lápida generada a la lista de todas las lapidas
 
 	def modificarEpitafio(self):			#Método para modificar el epitafio
 		e = input("Ingrese el epitafio")	
 		self._epitafio = e
 
-	@staticmethod
 	def leerLapida(self):													#Método para leer la información de la lápida
 		print("Nombre = " + self._nombrecli)								
 		print("Identificación = " + self._idCliente)						
@@ -29,9 +26,9 @@ class Lapida:
 		if self._fechaDef != 0:												#Se comprueba que ya esté la fecha de defunción
 			print("Fecha de defunción" + self._fechaDef)
 		print("Ubicacion = " + self._idUbicacion)
-		if self._privacidad False:											#Se comprueba que la privacidad sea pública y se recorre un arreglo imprimiendo todas las memorias				
+		if self._privacidad == False:											#Se comprueba que la privacidad sea pública y se recorre un arreglo imprimiendo todas las memorias				
 			print("Memorias: ")
-			for m in memorias[]:
+			for m in memorias:
 				print("* " + m)
 		else:
 			print("Esta lápida es privada. No puedes leer las memorias.")
@@ -51,6 +48,18 @@ class Lapida:
 			self._privacidad = True
 		else:
 			self._privacidad = False
+
+	def getPrivacidad(self):
+		return self._privacidad
+
+	def getUbicacion(self):
+		return self._ubicacion
+
+	def getEpitafio(self):
+		return self._epitafio
+
+	def getFechaDef(self):
+		return self._fechaDef
 
 
 

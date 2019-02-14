@@ -1,82 +1,44 @@
-import math
-from datetime import datetime, date, time, timedelta
-import calendar
-from Texto import Texto
+class Persona:
+	personas_totales = []
 
-#Clase Principal llamada Persona, esta contiene el método Main que dirige todo el proyecto.
-#Le dejo mi alma a este proyecto.
+	def __init__(self,nombre,documento,fechaNac):
+		self._nombre = nombre
+		self._documento = documento
+		self._fechaNac = fechaNac
+		Persona.personas_totales.append(self)
 
-class Persona():
+if __name__ == '__main__':
+	from Moderador import Moderador
+	from Cliente import Cliente
+	from Persona import Persona
+	from Lapida import Lapida
+	from Ubicacion import Ubicacion
 
-	listPersona = {"Documento  ":["Documento ","Nombre ","Fecha de Nacimiento"]} # Resolver lo más pronto posible lo de los datos ficticios.
-	contrasenas = {"Contrasena","Rol de Usuario"}
-	_hoy = datetime.now
-	_documento
-	_nombre
-	_fechaNac
-	_idiom
-	_rol
-	_contrasena
+	p1 = Persona("David","1090514247","23/02/1999")
+	u1 = Ubicacion("1")
+	l1 = Lapida(p1,False,u1)
 
-	def __init__(self):
-		Texto.setIdiom()
-		
-		
-		if(contrasena[])
+	Moderador("Marcos","1090514246","23/02/1998","123")
+	Cliente("David","1090514247","23/02/1999","456",l1)
 
 
-	if()
-		Texto.selIdiom()# Este es el inicializador del método persona que recibe el idioma en que la persona desea ver la aplicación. Si la elección es válido para luego a los métodos para registrar el usuario y posteriormente clasificarlo.
-		idiom=input()
-
-		if _idiom==1:
-			#Mostrar textos para Entrada de Persona en español.
-			self.registrarPersona()
-			self.clasificar()
-			pass
-		else if _idiom==2:
-			#Mostrar textos para Entrada de Persona en inglés.
-			self.registrarPersona()
-			self.clasificarPersona()
-			pass
-		else:
-			Texto.datoInvalido()
-
-			
-
-	@staticmethod
-	def registrarPersona():
-
-		_documento=input();
-		if (type(_documento)==(int)):
-			_nombre=input()
-			if(type(_nombre)==(str)):
-				_fechaNac=input(Fecha de Nacimiento!) #Aquí no sé como hacer el intro para la fecha de Nacimiento.
-				if(type(_fechaNac)==(date)):
-					listPersona[0]=(_documento,_nombre,_fechaNac)
-				else:
-					Texto.datoInvalido()
+	a = input("¿Ya se encuentra registrado en la base de datos de el cementerio ? 1.Si 2.No ")
+	if a == "1":
+		d = input("Ingrese su numero de documento por favor ")
+		while True:
+			b = input("¿Se encuentra registrado como moderador o como cliente ? 1.Cliente 2.Moderador ")
+			if b=="2":
+				m = Moderador.buscarModerador(d)
+				x = input("Ingrese su contraseña por favor ")
+				if x == m.getContrasenaModerador():
+					m.imprimirDatosModerador()
+				break
+			elif b=="1":
+				c = Cliente.buscarCliente(d)
+				x = input("Ingrese su contraseña por favor ")
+				if x == c.getContrasenaCliente():
+					c.imprimirDatosCliente()
+					c.imprimirDatosLapida()
+				break
 			else:
-				Texto.datoInvalido()
-		else:
-			Texto.datoInvalido()
-
-
-	@staticmethod
-	def clasificarPersona():
-
-		#Texto para presentar al usuario sobre que rol tomar.
-		print("Si usted es un")
-
-
-	
-    if __name__ == "__main__":
-
-     	Persona().run()
-
-
-
-
-
-
-		
+				print("Ingrese una opción valida")

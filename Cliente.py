@@ -1,23 +1,41 @@
 from Persona import Persona
 class Cliente(Persona):
+	clientes_totales = []
 
-	listClientes["Documento"]={"Nombre","fechaNac","Contraseña"}
-	
-	_contador=0
+	def __init__(self,nombre,documento,fechaNac,contrasena,lapida):
+		super().__init__(nombre,documento,fechaNac)
+		self._contrasena =  contrasena
+		self.lapida = lapida
+		Cliente.clientes_totales.append(self)
 
+	def buscarCliente(documento):
+		for c in Cliente.clientes_totales:
+			if c._documento == documento:
+				return c
 
-	def __init__(self):
-		pass
+	def getContrasenaCliente(self):
+		return self._contrasena
 
-	def registrarCliente(self,nombre,documento,fechaNac):
+	def imprimirDatosCliente(self):
+		print("TIPO DE PERFIL: CLIENTE")
+		print("Nombre: " + self._nombre)
+		print("Documento: " + self._documento)
+		print("Fecha de Nacimiento: " + self._fechaNac)
 
-		if "_documento" in listClientes:
-			print("Ud ya está inscrito como cliente.")
-
+	def imprimirDatosLapida(self):
+		print("DATOS LAPIDA: ")
+		l = self.lapida
+		if l.getPrivacidad():
+			print("Su lapida es privada")
 		else:
-			print("Por favor ingrese su Contraseña.")
-			_contrasena = input()
-			listClientes[self._documento] = (self.nombre,self.fechaNac,self.contrasena)
-
-
-		
+			print("Su lapida es publica")
+		u = l.getUbicacion()
+		print("Su lapida se encuentra en la posición " +  u.getIndice())
+		if l.getEpitafio() == "":
+			print("No tiene ningún epitafio")
+		else:
+			print("Epitafio: " + l.getEpitafio)
+		if l.getFechaDef() =="":
+			print("No tiene fecha de defunción")
+		else:
+			print("Fecha de defunción = " + l.getFechaDef())
