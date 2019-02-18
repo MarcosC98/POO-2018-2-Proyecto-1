@@ -1,12 +1,20 @@
 from Persona import Persona
 class Cliente(Persona):
 	clientes_totales = []
+	documentos_clientes = []
 
 	def __init__(self,nombre,documento,fechaNac,contrasena,lapida):
 		super().__init__(nombre,documento,fechaNac)
 		self._contrasena =  contrasena
 		self.lapida = lapida
+		Cliente.documentos_clientes.append(documento)
 		Cliente.clientes_totales.append(self)
+
+	def comprobarDocumentoCliente(documento):
+		for d in Cliente.documentos_clientes:
+			if d == documento:
+				return True
+				break
 
 	def buscarCliente(documento):
 		for c in Cliente.clientes_totales:

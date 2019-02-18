@@ -3,7 +3,7 @@ class Lapida:
 	lapidas_totales = []#Lista con todas las lápidas generadas	
 
 
-	def __init__(self,persona,privacidad,ubicacion,fechaDef="",epitafio=""): #Constructor de clase lapida
+	def __init__(self,persona,privacidad,ubicacion,epitafio="",fechaDef=""): #Constructor de clase lapida
 		self._fechaDef = fechaDef	#fecha defuncion, se inicia en 0 ya que un cliente puede tener una lapida sin haber fallecido
 		self._epitafio = epitafio	#epitafio. En el constructor se inicia vacío ya que hay lapidas sin epitafios
 		self._privacidad = privacidad	#Es un boolean con true = privada y false = publica
@@ -18,20 +18,23 @@ class Lapida:
 		self._epitafio = e
 
 	def leerLapida(self):													#Método para leer la información de la lápida
-		print("Nombre = " + self._nombrecli)								
-		print("Identificación = " + self._idCliente)						
+		print("Esta es la lapida de : " + self._persona.getNombre())								
+		print("Documento : " + self._persona.getDocumento())						
 		if self._epitafio != "":											#Se comprueba que el epitafio no esté vacío
-			print("Epitafio = " + self._epitafio)
-		print("Fechad de nacimiento = " + self._fechaNac)
-		if self._fechaDef != 0:												#Se comprueba que ya esté la fecha de defunción
+			print("Epitafio : " + self._epitafio)
+		print("Fecha de nacimiento : " + self._persona.getFechaNac())
+		if self._fechaDef != "":												#Se comprueba que ya esté la fecha de defunción
 			print("Fecha de defunción" + self._fechaDef)
-		print("Ubicacion = " + self._idUbicacion)
-		if self._privacidad == False:											#Se comprueba que la privacidad sea pública y se recorre un arreglo imprimiendo todas las memorias				
-			print("Memorias: ")
-			for m in memorias:
-				print("* " + m)
+		print("Ubicacion : " + self._ubicacion.getIndice())
+		if self._privacidad == False:
+			if len(self.memorias) != 0:											#Se comprueba que la privacidad sea pública y se recorre un arreglo imprimiendo todas las memorias				
+				print("Memorias: ")
+				for m in self.memorias:
+					m.imprimirDatosMemoria()
+			else:
+				print("Esta lapida no tiene ninguna memoria escrito todavía")
 		else:
-			print("Esta lápida es privada. No puedes leer las memorias.")
+			print("Esta lápida es privada. No puedes leer/escribir memorias.")
 
 	def modificarUbicacion(self):										
 			u = input("Ingrese el ID de la nueva ubicación")
@@ -60,6 +63,12 @@ class Lapida:
 
 	def getFechaDef(self):
 		return self._fechaDef
+
+	def buscarLapida(documento):
+		for l in Lapida.lapidas_totales:
+			if l._persona.getDocumento() == documento:
+				return l
+				break
 
 
 
