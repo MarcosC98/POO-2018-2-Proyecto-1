@@ -29,6 +29,7 @@ if __name__ == '__main__':
 	from Lapida import Lapida
 	from Ubicacion import Ubicacion
 	from Memoria import Memoria
+	from Textos import Texto
 
 	p1 = Persona("David","1090514247","23/02/1999")
 	u1 = Ubicacion("1")
@@ -38,12 +39,17 @@ if __name__ == '__main__':
 	Cliente("David","1090514247","23/02/1999","456",l1)
 	Moderador("David","1090514247","23/02/1999","789")
 
+	Texto.presentacion()
+	_idiom = int(input("Ingrese el idioma de su preferencia / Select your favorite language: "))
+	Texto(_idiom)
+
 	while True:
 		d = input("Ingrese su numero de documento por favor: ")
 		m = Moderador.buscarModerador(d)
 		c = Cliente.buscarCliente(d)
 		if m is None and c is None:
 			print("No hay ninguna cuenta registrada con ese documento.")
+
 			while True:
 				e = input("Si desea intentar nuevamente con otro documento ingrese 0, si desea crear una cuenta nueva con este documento ingrese 1 ")
 				if e == "1":
