@@ -76,14 +76,18 @@ if __name__ == '__main__':
 						if ac == "1":
 							if Cliente.comprobarDocumentoCliente(d) is None:
 								print("CREACION DE LAPIDA///////////////////////////////////////////////////////////////")
-								ep = input("Ingrese el epitafio que desea en su lapida ")
-								contra = input("Ingrese la contraseña que usará en su cuenta ")
+								print("Ingrese el epitafio que desea en su lapida ")
+								ep = input()
+								print("Ingrese la contraseña que usará en su cuenta ")
+								contra = input()
 								while True:
-									u = input("Ingrese la úbicación de su lápida ")
+									print("Ingrese la úbicación de su lápida ")
+									u = input()
 									if Ubicacion.revisarDisponibilidadUbicacion(u):
 										ub = Ubicacion(u)
 										while True:
-											p = input("Ingrese 0 si desea que su lápida sea privada, 1 si desea que sea pública ")
+											print("Ingrese 0 si desea que su lápida sea privada, 1 si desea que sea pública ")
+											p = input()
 											if p == "0":
 												la = Lapida(v,True,ub,ep)
 												cl = Cliente(nombre,d,fechaNac,contra,la)
@@ -109,7 +113,8 @@ if __name__ == '__main__':
 										print("Esta lápida es privada. No puedes leer/escribir memorias.")
 										break
 									else:
-										de = input("Ingrese la descripcion de la memoria por favor ")
+										print("Ingrese la descripcion de la memoria por favor ")
+										de = input()
 										me = Memoria(v,de,l)
 										l.memorias.append(me)
 										me.imprimirDatosMemoria()
@@ -119,7 +124,8 @@ if __name__ == '__main__':
 
 						if ac == "3":
 							while True:
-								l = Lapida.buscarLapida(input("Ingrese el documento de la persona propietaria de la lapida que desea leer "))
+								print("Ingrese el documento de la persona propietaria de la lapida que desea leer ")
+								l = Lapida.buscarLapida(input())
 								if l is not None:
 									l.leerLapida()
 									break
@@ -142,21 +148,28 @@ if __name__ == '__main__':
 		else:
 			if m is not None and c is not None:
 				while True:
-					e = input("Desea ingresar a su perfil de moderador o cliente ? 1.Moderador 2.Cliente ")
+					print("Desea ingresar a su perfil de moderador o cliente ? 1.Moderador 2.Cliente ")
+					e = input()
 					if e == "1":
 						while True:
-							c = input("Ingrese la contraseña de este perfil ")
+							print("Ingrese la contraseña de este perfil ")
+							c = input()
 							if c == m.getContrasenaModerador():
 								m.imprimirDatosModerador()
 								while True:
-									ac = input("Ingrese el número de la acción a realizar: 1.Registrar nuevo moderador 2.Borrar memoria 3.Registrar defunción de un cliente 4.Cambiar contraseña 5.Ver numero total de clientes 6.Ver numero total de moderadores 7.Ver numero total de visitantes 8.Ingresar con otro perfil 9.Salir  " )
+									print("Ingrese el número de la acción a realizar: 1.Registrar nuevo moderador 2.Borrar memoria 3.Registrar defunción de un cliente 4.Cambiar contraseña 5.Ver numero total de clientes 6.Ver numero total de moderadores 7.Ver numero total de visitantes 8.Ingresar con otro perfil 9.Salir  " )
+									ac = input()
 									if ac == "1":
 										while True:
-											documento = input("Ingrese el documento de el nuevo moderador ")
+											print("Ingrese el documento de el nuevo moderador ")
+											documento = input()
 											if Moderador.comprobarDocumentoModerador(documento) is None:
-												nombre = input("Ingrese el nombre completo de el nuevo moderador ")								
-												fechaNac = input("Ingrese la fecha de nacimiento de el nuevo moderador en el formato dd/mm/aaaa ")
-												contrasena = input("Ingrese la contraseña de la cuenta de el nuevo moderador ")
+												print("Ingrese el nombre completo de el nuevo moderador ")
+												nombre = input()			
+												print("Ingrese la fecha de nacimiento de el nuevo moderador en el formato dd/mm/aaaa ")					
+												fechaNac = input()
+												print("Ingrese la contraseña de la cuenta de el nuevo moderador ")
+												contrasena = input()
 												mod = Moderador(nombre,documento,fechaNac,contrasena)
 												print("NUEVO MODERADOR CREADO:  ----------------------------------")
 												Moderador.imprimirDatosModerador(mod)
