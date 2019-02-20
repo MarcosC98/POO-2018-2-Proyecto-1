@@ -8,7 +8,7 @@ class Persona:
 		Persona.personas_totales.append(self)
 
 	def imprimirDatosPersona(self):
-		print("TIPO DE PERFIL: VISITANTE")
+		print(""+"\n"+"TIPO DE PERFIL: VISITANTE"+"\n"+"")
 		print("Nombre: " + self._nombre)
 		print("Documento: " + self._documento)
 		print("Fecha de Nacimiento: " + self._fechaNac)
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 			t = Texto(_idiom)
 			break
 		else:
-			print("El dato ingresado es inválido. / The entered data is invalid.")
+			print(""+"\n"+"El dato ingresado es inválido. / The entered data is invalid."+"\n"+"")
 	
 
 	while True:
@@ -64,12 +64,15 @@ if __name__ == '__main__':
 				print (t.seleccionUno)
 				e = input()
 				if e == "1":
-					nombre = input("Ingrese su nombre completo: ")
-					fechaNac = input("Ingrese su fecha de nacimiento en formato dd/mm/aaaa: ")
+					print(t.entradaNombre)
+					nombre = input()
+					print(t.entradaFechaNac) 
+					fechaNac = input()
 					v = Persona(nombre,d,fechaNac)
 					v.imprimirDatosPersona()
 					while True:
-						ac = input("Ingrese el número de la acción a realizar: 1.Adquirir Lápida 2.Escribir Memoria 3.Leer Lápida 4.Ingresar con otro perfil 5.Salir ")
+						print("Ingrese el número de la acción a realizar: 1.Adquirir Lápida 2.Escribir Memoria 3.Leer Lápida 4.Ingresar con otro perfil 5.Salir ")
+						ac = input()
 						if ac == "1":
 							if Cliente.comprobarDocumentoCliente(d) is None:
 								print("CREACION DE LAPIDA///////////////////////////////////////////////////////////////")
