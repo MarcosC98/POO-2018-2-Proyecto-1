@@ -6,7 +6,7 @@ class Cliente(Persona):
 	def __init__(self,nombre,documento,fechaNac,contrasena,lapida):
 		super().__init__(nombre,documento,fechaNac)
 		self._contrasena =  contrasena
-		self.lapida = lapida
+		self._lapida = lapida
 		Cliente.documentos_clientes.append(documento)
 		Cliente.clientes_totales.append(self)
 
@@ -32,7 +32,7 @@ class Cliente(Persona):
 
 	def imprimirDatosLapida(self):
 		print("DATOS LAPIDA: ")
-		l = self.lapida
+		l = self._lapida
 		if l.getPrivacidad():
 			print("Su lapida es privada")
 		else:
