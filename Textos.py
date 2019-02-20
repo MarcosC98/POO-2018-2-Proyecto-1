@@ -2,11 +2,17 @@ from Persona import Persona
 class Texto:
 
 	def __init__(self,idiom):
-		if idiom==1 or idiom==2:
-			Texto.introduccion(idiom)
+
+		if idiom=="1":
+			self.introDoc = ""+"\n"+"Por favor ingrese su documento: "
+			self.noRegistra = ""+"\n"+"Su número de identidad no se encuentra registrado."
+			self.seleccionUno = ""+"\n"+"Si desea intentar nuevamente con otro documento ingrese 0."+"\n"+"Si desea crear una cuenta nueva con este documento ingrese 1."+"\n"+""
+
 		else:
-			print("Ese no es un comando válido.")
-		
+			self.introDoc = "Please enter you id number: "
+			self.noRegistra = "There isn't any registered account with that id number."
+			self.seleccionUno = "quibu"
+			self.metodo = ""+"\n"+""
 
 
 	def introduccion(idiom):
@@ -25,12 +31,6 @@ class Texto:
 
 
 
-
-	@staticmethod
-	def datoInvalido():#Todo este método es para imprimir cuando el usuario ingrese datos invalidos.
-		pass
-
-
 	@staticmethod
 	def presentacion():
 		print("")
@@ -46,6 +46,13 @@ class Texto:
 		print("")
 		print("")
 		print("")
+
+	@staticmethod
+	def ingresoDocumento():
+		if idiom==1:
+			print("Ingrese su numero de documento por favor: ")
+		else:
+			print("Lo mismo pero en inglés: ")
 
 
 

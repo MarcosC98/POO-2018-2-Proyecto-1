@@ -40,18 +40,29 @@ if __name__ == '__main__':
 	Moderador("David","1090514247","23/02/1999","789")
 
 	Texto.presentacion()
-	_idiom = int(input("Ingrese el idioma de su preferencia / Select your favorite language: "))
-	Texto(_idiom)
 
 	while True:
-		d = input("Ingrese su numero de documento por favor: ")
+		_idiom = input("Su Selección / Your Selection: ")
+		if _idiom =="1":
+			t = Texto(_idiom)
+			break
+		elif _idiom =="2":
+			t = Texto(_idiom)
+			break
+		else:
+			print("El dato ingresado es inválido. / The entered data is invalid.")
+	
+
+	while True:
+		d = input(t.introDoc)
 		m = Moderador.buscarModerador(d)
 		c = Cliente.buscarCliente(d)
 		if m is None and c is None:
-			print("No hay ninguna cuenta registrada con ese documento.")
+			print(t.noRegistra)
 
 			while True:
-				e = input("Si desea intentar nuevamente con otro documento ingrese 0, si desea crear una cuenta nueva con este documento ingrese 1 ")
+				print (t.seleccionUno)
+				e = input()
 				if e == "1":
 					nombre = input("Ingrese su nombre completo: ")
 					fechaNac = input("Ingrese su fecha de nacimiento en formato dd/mm/aaaa: ")
