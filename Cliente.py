@@ -6,7 +6,7 @@ class Cliente(Persona):
 	def __init__(self,nombre,documento,fechaNac,contrasena,lapida):
 		super().__init__(nombre,documento,fechaNac)
 		self._contrasena =  contrasena
-		self._lapida = lapida
+		self.lapida = lapida
 		Cliente.documentos_clientes.append(documento)
 		Cliente.clientes_totales.append(self)
 
@@ -24,15 +24,19 @@ class Cliente(Persona):
 	def getContrasenaCliente(self):
 		return self._contrasena
 
+	def getLapida(self):
+		return self.lapida
+
 	def imprimirDatosCliente(self):
-		print("TIPO DE PERFIL: CLIENTE")
+		print("TIPO DE PERFIL: CLIENTE-------------------------------------------------------------------------------------------")
 		print("Nombre: " + self._nombre)
 		print("Documento: " + self._documento)
 		print("Fecha de Nacimiento: " + self._fechaNac)
+		print("----------------------------------------------------------------------------------------------------------------------")
 
 	def imprimirDatosLapida(self):
-		print("DATOS LAPIDA: ")
-		l = self._lapida
+		print("DATOS LAPIDA: --------------------------------------------------------------------------------------------")
+		l = self.lapida
 		if l.getPrivacidad():
 			print("Su lapida es privada")
 		else:
@@ -47,3 +51,4 @@ class Cliente(Persona):
 			print("No tiene fecha de defunción")
 		else:
 			print("Fecha de defunción = " + l.getFechaDef())
+		print("-------------------------------------------------------------------------------------------------------------------------")

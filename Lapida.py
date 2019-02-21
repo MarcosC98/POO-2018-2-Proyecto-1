@@ -18,6 +18,7 @@ class Lapida:
 		self._epitafio = e
 
 	def leerLapida(self):													#Método para leer la información de la lápida
+		print("----------------------------------------------------------------------------------------------------------------------------")
 		print("Esta es la lapida de : " + self._persona.getNombre())								
 		print("Documento : " + self._persona.getDocumento())						
 		if self._epitafio != "":											#Se comprueba que el epitafio no esté vacío
@@ -32,9 +33,10 @@ class Lapida:
 				for m in self.memorias:
 					m.imprimirDatosMemoria()
 			else:
-				print("Esta lapida no tiene ninguna memoria escrito todavía")
+				print("Esta lapida no tiene ninguna memoria escrita todavía")
 		else:
 			print("Esta lápida es privada. No puedes leer/escribir memorias.")
+		print("---------------------------------------------------------------------------------------------------------------------------------")
 
 	def modificarUbicacion(self):										
 			u = input("Ingrese el ID de la nueva ubicación")
@@ -70,7 +72,22 @@ class Lapida:
 				return l
 				break
 
+	def imprimirMemorias(self):
+		x = 0
+		for m in self.memorias:
+			x = x + 1
+			print("MEMORIA NUMERO " + str(x))
+			m.imprimirDatosMemoria()
 
+	def borrarMemoria(self,x):
+		del self.memorias[int(x)-1]
+		print("Se ha eliminado la memoria numero " + x)
+
+	def setFechaDef(self,fechaDef):
+		self._fechaDef = fechaDef
+
+	def getFechaDef(self):
+		return self._fechaDef
 
 
 	

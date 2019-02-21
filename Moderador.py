@@ -26,7 +26,12 @@ class Moderador(Persona):
 
 
 	def imprimirDatosModerador(self):
+		print("-----------------------------------------------------------------------------------")
 		print("TIPO DE PERFIL: MODERADOR")
 		print("Nombre: " + self._nombre)
 		print("Documento: " + self._documento)
 		print("Fecha de Nacimiento: " + self._fechaNac)
+		print("-----------------------------------------------------------------------------------")
+
+	def setContrasena(self,contrasena):
+		self.contrasena = contrasena
