@@ -9,10 +9,10 @@ class Persona:
 
     def imprimirDatosPersona(self):
         print("--------------------------------------------------------------------------------------------")
-        print("TIPO DE PERFIL: VISITANTE")
-        print("Nombre: " + self._nombre)
-        print("Documento: " + self._documento)
-        print("Fecha de Nacimiento: " + self._fechaNac)
+        print(t.perfilVisitante)
+        print(t.nombre + self._nombre)
+        print(t.documento + self._documento)
+        print(t.fechaNac + self._fechaNac)
         print("----------------------------------------------------------------------------------------------")
 
     def getNombre(self):
@@ -27,12 +27,13 @@ class Persona:
     def verLapida():
         from Lapida import Lapida
         while True:
-            l = Lapida.buscarLapida(input("Ingrese el documento de la persona propietaria de la lapida que desea leer "))
+            print(t.propLapidaLeer)
+            l = Lapida.buscarLapida(input())
             if l is not None:
                 l.leerLapida()
                 break
             else:
-                print("No hay ninguna persona con ese documento que tenga una lapida")
+                print(t.noDuenoLapida)
 
 
 if __name__ == '__main__':
@@ -46,6 +47,7 @@ if __name__ == '__main__':
     from Textos import Texto
     
     m1 = Moderador("David","1090514247","23/02/1999","789")
+    m3 = Moderador("Mario Aguilera","1010215392","13/06/1994","666")
     u1 = Ubicacion("1")
     l1 = Lapida(m1,False,u1)
     m2 = Moderador("Marcos","1090514246","23/02/1998","123")
@@ -134,7 +136,7 @@ if __name__ == '__main__':
                             elif ac == "2":
                                 print(""+"\n"+"///////////////////////////////////////////CREACION DE MEMORIA///////////////////////////////////////////"+"\n"+"") #Nuevamente los dejo porque me parece que son puntos de referencia en el código.
                                 while True:
-                                    print(t.propietarioLap)
+                                    print(t.propLapDejarMemoria)
                                     l = Lapida.buscarLapida(input())
                                     if l is not None:
                                         if l.getPrivacidad():
@@ -211,65 +213,68 @@ if __name__ == '__main__':
 
                                         elif ac == "2":
                                             while True:
-                                                a = input("Ingrese el documento de la persona la cual posee la lapida donde está la memoria que desea eliminar ")
+                                                print(t.nombre)
+                                                a = input()
                                                 c = Cliente.buscarCliente(a)
                                                 if c is None:
-                                                    print("No hay ninguna persona con ese documento que posea una lapida")
+                                                    print(t.noDuenoLapida)
                                                 else:
                                                     l = c.getLapida()
                                                     if l.getPrivacidad():
-                                                        print("Esta lapida es privada, no tiene ninguna memoria")
+                                                        print(t.lapPrivSinMemoria)
                                                         break
                                                     else:
                                                         if len(l.memorias) == 0:
-                                                            print("Esta lapida no tiene ninguna memoria")
+                                                            print(t.sinMemoria)
                                                             break
                                                         else:
                                                             l.imprimirMemorias()
                                                             while True:
-                                                                i = input("Ingrese el numero de la memoria que desea eliminar ")#FALLA SI INPUT ES VACÍO
+                                                                print(t.eliminarMemoria)
+                                                                i = input()#FALLA SI INPUT ES VACÍO
                                                                 if len(l.memorias) >= int(i):
                                                                     l.borrarMemoria(i) #CONTROL PARA QUE ALGUIEN NO PONGA LETRAS O NÚMEROS INVALIDOS
                                                                     break
                                                                 else:
-                                                                    print("No existe una memoria en la posición " + i)
+                                                                    print(t.noPosicionMemoria + i)
                                                             break
                                         elif ac == "3":
                                             while True:
-                                                a = input("Ingrese el documento de el cliente que ha fallecido ")
+                                                print(t.documentoClienteFallecido)
                                                 c = Cliente.buscarCliente(a)
                                                 if c is None:
-                                                    print("No hay ninguna persona con ese documento que posea una lapida")
+                                                    print(t.clienteNoLapida)
                                                 else:
                                                     l = c.getLapida()
                                                     if l.getFechaDef() is "":
-                                                        fd = input("Ingrese la fecha de defunción de el cliente en formado dd/mm/aaaa ")
+                                                        print()
+                                                        fd = input()
                                                         l.setFechaDef(fd)
                                                         break
                                                     else:
-                                                        print("Este cliente ya tiene una fecha de defunción registrada ")
+                                                        print(t.yaDifunto)
                                                         break
 
                                         elif ac == "4":
                                             print(t.crearContrasena)
                                             a = input()
                                             m.setContrasena(a)
-                                            print("Su nueva contraseña es: " + a)
+                                            print(t.textNuevaContraseña + a)
                                         
                                         elif ac == "5":
-                                            print("En total hay " + str(len(Cliente.clientes_totales)) + " clientes")
+                                            print(t.total + str(len(Cliente.clientes_totales)) + t.clientes)
                                             for c in Cliente.clientes_totales:
                                                 c.imprimirDatosCliente()
                                                 c.imprimirDatosLapida()
 
                                         elif ac == "6":
-                                            print("En total hay " + str(len(Moderador.moderadores_totales)) + " moderadores")
+                                            print(t.total + str(len(Moderador.moderadores_totales)) + t.mods)
                                             for m in Moderador.moderadores_totales:
                                                 m.imprimirDatosModerador()
 
                                         elif ac == "7":
                                             visitantes = len(Persona.personas_totales) - len(Cliente.clientes_totales) - len(Moderador.moderadores_totales)
-                                            print("En total hay " + str(visitantes) + " visitantes")
+                                            print(t.total + str(visitantes) + t.visit)
                                             for v in Persona.personas_totales:
                                                 if v.getDocumento() in Moderador.documentos_moderadores or v.getDocumento() in Cliente.documentos_clientes:
                                                     pass
@@ -285,11 +290,11 @@ if __name__ == '__main__':
                                             pass
 
                                         else:
-                                            print("Ingrese un numero valido por favor ")
+                                            print(t.datoInvalido)
                                     break
 
                                 else:
-                                    print("La contraseña es incorrecta")
+                                    print(t.contrasenaIncorrecta)
 
                         elif e == "2":
                             #CLIENTE
@@ -300,7 +305,7 @@ if __name__ == '__main__':
                         else:
                             print(t.datoInvalido)
         else:
-            print("Por favor ingrese un número ")
+            print(t.noNumerico)
 
 
 

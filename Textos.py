@@ -52,7 +52,7 @@ class Texto:
 			self.noNumerico = ""+"\n"+"Ingrese un número por favor."
 			self.contrasenaInvalida = ""+"\n"+"Ingrese una contraseña válida."
 			self.lapidaAntesCreada = ""+"\n"+"Ya tienes una lapida creada."
-			self.propietarioLap = ""+"\n"+"Ingrese el documento de la persona propietaria de la lapida donde va a dejar la memoria: "
+			self.propLapDejarMemoria = ""+"\n"+"Ingrese el documento de la persona propietaria de la lapida donde va a dejar la memoria: "
 			self.lapidaPrivada = ""+"\n"+"Esta lápida es privada. No puedes leer/escribir memorias."
 			self.noDescripcion = ""+"\n"+"No puede haber una Memoria sin descripción."
 			self.noDocumentoLap = ""+"\n"+"No hay ninguna persona con ese documento que tenga una lapida."
@@ -64,13 +64,34 @@ class Texto:
 			self.modOrClient = ""+"\n"+"¿Desea ingresar a su perfil de moderador o cliente?"+"\n"+"   1.Moderador"+"\n"+"   2.Cliente"+"\n"+"   3.Ingreso con otro Documento."
 			self.selecMenu = ""+"\n"+"Ingrese el número de la acción a realizar:"+"\n"+""+"\n"+"   1.Registrar nuevo moderador"+"\n"+"   2.Borrar memoria."+"\n"+"   3.Registrar defunción de un cliente."+"\n"+"   4.Cambiar contraseña."+"\n"+"   5.Ver numero total de clientes."+"\n"+"   6.Ver numero total de moderadores."+"\n"+"   7.Ver numero total de visitantes"+"\n"+"   8.Ingresar con otro perfil."+"\n"+"   9.Salir." 
 			self.ingresoContrasena = ""+"\n"+"Por favor ingrese su contraseña: "
-			self.docModerador = "Ingrese el documento del Moderador: "
-			self.nombreModerador = "Ingrese el nombre del Moderador: "
-			self.fnModerador = "Ingrese la Fecha de Nacimiento del Moderador (dd/mm/aaaa): "
-			self.contrasenaModerador = "Ingrese su contraseña como Moderador: "
-
-
-
+			self.docModerador = ""+"\n"+"Ingrese el documento del Moderador: "
+			self.nombreModerador = ""+"\n"+"Ingrese el nombre del Moderador: "
+			self.fnModerador = ""+"\n"+"Ingrese la Fecha de Nacimiento del Moderador (dd/mm/aaaa): "
+			self.contrasenaModerador = ""+"\n"+"Ingrese su contraseña como Moderador: "
+			self.existeMod = ""+"\n"+"Ya existe un Moderador con este documento."
+			self.documentoLapida = ""+"\n"+"Ingrese el documento de la persona la cual posee la lapida donde está la memoria que desea eliminar "
+			self.noDuenoLapida = ""+"\n"+"No hay ninguna persona con ese documento que posea una lapida"
+			self.lapPrivSinMemoria = ""+"\n"+"Esta lápida es privada y no tiene Memorias."
+			self.sinMemoria = ""+"\n"+"Esta lápida no tiene Memorias."
+			self.eliminarMemoria = ""+"\n"+"Ingrese el numero de la memoria que desea eliminar "
+			self.noPosicionMemoria = ""+"\n"+"No existe una memoria en la posición: "
+			self.documentoClienteFallecido = ""+"\n"+"Ingrese el documento del Cliente fallecido: "
+			self.clienteNoLapida = ""+"\n"+"No hay ninguna persona con ese documento que posea una lapida."
+			self.fechaDefuncion = ""+"\n"+"Ingrese la fecha de defunción de el cliente en formado (dd/mm/aaaa):"
+			self.yaDifunto = ""+"\n"+"Este cliente ya tiene una fecha de defunción registrada."
+			self.textNuevaContraseña = ""+"\n"+"Su Nueva Contraseña es: "
+			self.total = ""+"\n"+"En total hay: "
+			self.clientes = ""+"\n"+" Clientes."
+			self.mods = ""+"\n"+" Moderadores."
+			self.visit = ""+"\n"+" Visitantes."
+			self.contrasenaIncorrecta = ""+"\n"+"La contraseña es incorrecta."
+			self.perfilVisitante = ""+"\n"+"TIPO DE PERFIL: VISITANTE"
+			self.nombre = "Nombre: "
+			self.documento = "Documento: "
+			self.fechaNac = "Fecha de Nacimiento: "
+			self.propLapidaLeer= ""+"\n"+"Ingrese el documento de la persona propietaria de la lapida que desea leer."
+			self.noDuenoLapida = ""+"\n"+"No hay ninguna persona con ese documento que tenga una lapida"
+				
 		else:
 			self.datoInvalido = ""+"\n"+"El dato ingresado es inválido."
 			self.introDoc = ""+"\n"+"Please enter you id number: "
@@ -88,7 +109,7 @@ class Texto:
 			self.noNumerico = ""+"\n"+"Ingrese un número por favor."#Traducir
 			self.contrasenaInvalida = ""+"\n"+"Ingrese una contraseña válida."#Traducir
 			self.lapidaAntesCreada = ""+"\n"+"You already have a tombstone created."
-			self.propietarioLap = ""+"\n"+"Enter the document of the person who owns the tombstone where you will leave the memory: "
+			self.propLapDejarMemoria = ""+"\n"+"Enter the document of the person who owns the tombstone where you will leave the memory: "
 			self.lapidaPrivada = ""+"\n"+"This tombstone is private. You can not read / write memories."
 			self.noDescripcion = ""+"\n"+"No puede haber una Memoria sin descripción."#Traducir
 			self.noDocumentoLap = ""+"\n"+"No hay ninguna persona con ese documento que tenga una lapida." #Traducir
@@ -100,14 +121,33 @@ class Texto:
 			self.modOrClient = ""+"\n"+"¿Desea ingresar a su perfil de moderador o cliente?"+"\n"+"   1.Moderador"+"\n"+"   2.Cliente"+"\n"+"   3.Ingreso con otro Documento." #Traducir
 			self.selecMenu = ""+"\n"+"Choose one of the follow options: "+"\n"+""+"\n"+"   1.Register a new Moderator."+"\n"+"   2.Delete Memory."+"\n"+"   3.Record the death of a client."+"\n"+"   4.Cambiar contraseña."+"\n"+"   5.See amount of clients."+"\n"+"   6.See amount of moderators."+"\n"+"   7.See amount of visitors"+"\n"+"   8.Enter with other profile."+"\n"+"   9.Game Over." 
 			self.ingresoContrasena = ""+"\n"+"Por favor ingrese su contraseña: " #Traducir
-			self.docModerador = "Ingrese el documento del Moderador: " #Traducir
-			self.nombreModerador = "Ingrese el nombre del Moderador: "#Traducir
-			self.fnModerador = "Ingrese la Fecha de Nacimiento del Moderador (dd/mm/aaaa): "#Traducir
-			self.contrasenaModerador = "Ingrese una contraseña para Moderador: "#Traducir
-			self.existeMod = "Ya existe un Moderador con este documento." #Traducir
-
-			
-
+			self.docModerador = ""+"\n"+"Ingrese el documento del Moderador: " #Traducir
+			self.nombreModerador = ""+"\n"+"Ingrese el nombre del Moderador: "#Traducir
+			self.fnModerador = ""+"\n"+"Ingrese la Fecha de Nacimiento del Moderador (dd/mm/aaaa): "#Traducir
+			self.contrasenaModerador = ""+"\n"+"Ingrese una contraseña para Moderador: "#Traducir
+			self.existeMod = ""+"\n"+"Ya existe un Moderador con este documento." #Traducir
+			self.documentoLapida = ""+"\n"+"Ingrese el documento de la persona la cual posee la lapida donde está la memoria que desea eliminar " #Traducir
+			self.noDuenoLapida = ""+"\n"+"No hay ninguna persona con ese documento que posea una lapida" #Traducir
+			self.lapPrivSinMemoria = ""+"\n"+"Esta lápida es privada y no tiene Memorias."#Traducir
+			self.sinMemoria = ""+"\n"+"Esta lápida no tiene Memorias."#Traducir
+			self.eliminarMemoria = ""+"\n"+"Ingrese el numero de la memoria que desea eliminar "#Traducir
+			self.noPosicionMemoria = ""+"\n"+"No existe una memoria en la posición: "#Traducir
+			self.documentoClienteFallecido = ""+"\n"+"Ingrese el documento del Cliente fallecido: "#Traducir
+			self.clienteNoLapida = ""+"\n"+"No hay ninguna persona con ese documento que posea una lapida."#Traducir
+			self.fechaDefuncion = ""+"\n"+"Ingrese la fecha de defunción de el cliente en formado (dd/mm/aaaa):"#Traducir
+			self.yaDifunto = ""+"\n"+"Este cliente ya tiene una fecha de defunción registrada."#Traducir
+			self.textNuevaContraseña = ""+"\n"+"Su Nueva Contraseña es: "#Traducir
+			self.total = ""+"\n"+"There are in total: "#Traducir
+			self.clientes = ""+"\n"+" Clients."
+			self.mods = ""+"\n"+" Moderators."
+			self.visit = ""+"\n"+" Visitors."
+			self.contrasenaIncorrecta = ""+"\n"+"La contraseña es incorrecta."#Traducir
+			self.perfilVisitante = ""+"\n"+"TIPO DE PERFIL: VISITANTE"
+			self.nombre = "Name: "
+			self.documento = "Document: "
+			self.fechaNac = "Date of Birth: "
+			self.propLapidaLeer = ""+"\n"+"Ingrese el documento de la persona propietaria de la lapida que desea leer."#Traducir
+			self.noDuenoLapida = ""+"\n"+"No hay ninguna persona con ese documento que tenga una lapida"#Traducir
 
 
 
