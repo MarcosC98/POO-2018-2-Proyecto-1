@@ -51,86 +51,109 @@ if __name__ == '__main__':
     m2 = Moderador("Marcos","1090514246","23/02/1998","123")
     c1 = Cliente("David","1090514247","23/02/1999","456",l1)
 
+    Texto.presentacion()
     while True:
-        d = input("Ingrese su numero de documento por favor: ") 
+        _idiom=input("Su Selección / Your Selection: ")
+        if _idiom=="1":
+            t=Texto(_idiom)
+            break
+        elif _idiom=="2":
+            t=Texto(_idiom)
+            break
+        else:
+            print(""+"\n"+"El dato ingresado es inválido. / The entered data is invalid."+"\n"+"")
+
+    while True:
+        print(t.introDoc)
+        d = input() 
         if d.isdigit():
             m = Moderador.buscarModerador(d)
             c = Cliente.buscarCliente(d)
             if m is None and c is None:
-                print("No hay ninguna cuenta registrada con ese documento.")
+                print(t.noRegistra)
                 while True:
-                    e = input("Si desea intentar nuevamente con otro documento ingrese 0, si desea crear una cuenta nueva con este documento ingrese 1 ")
+                    print (t.seleccionUno)
+                    e = input()
                     if e == "1":
-                        nombre = input("Ingrese su nombre completo: ") #//CONTROL PARA QUE SOLO INGRESEN LETRAS 
-                        fechaNac = input("Ingrese su fecha de nacimiento en formato dd/mm/aaaa: ") #//CONTROL PARA QUE INGRESEN UNA FECHA VALIDA
+                        print(t.entradaNombre)
+                        nombre = input() #//CONTROL PARA QUE SOLO INGRESEN LETRAS 
+                        print(t.entradaFechaNac)
+                        fechaNac = input() #//CONTROL PARA QUE INGRESEN UNA FECHA VALIDA
                         v = Persona(nombre,d,fechaNac)
                         v.imprimirDatosPersona()
                         while True:
-                            ac = input("Ingrese el número de la acción a realizar: 1.Adquirir Lápida 2.Escribir Memoria 3.Leer Lápida 4.Ingresar con otro perfil 5.Salir ")
+                            print(t.selecOpcion)
+                            ac = input()
                             if ac == "1":
                                 if Cliente.comprobarDocumentoCliente(d) is None:
-                                    print("CREACION DE LAPIDA--------------------------------------------------------------------------------")
-                                    ep = input("Ingrese el epitafio que desea en su lapida ")
+                                    print("///////////////////////////////////////////CREACION DE LAPIDA///////////////////////////////////////////") #Dejo este print porque me parece que hace el texto más legible.
+                                    print(t.ingresoEpitafio)
+                                    ep = input()
                                     while True:
-                                        contra = input("Ingrese la contraseña que usará en su cuenta ")
+                                        print(t.crearContrasena)
+                                        contra = input()
                                         if contra is not "":
                                             while True:
-                                                u = input("Ingrese la úbicación de su lápida ")#//CONTROL PARA QUE SOLO INGRESEN NUMEROS
+                                                print(t.ingresoUbicacion)
+                                                u = input()#//CONTROL PARA QUE SOLO INGRESEN NUMEROS
                                                 if u.isdigit():
                                                     if u is not "":
                                                         if Ubicacion.revisarDisponibilidadUbicacion(u):
                                                             ub = Ubicacion(u)
                                                             while True:
-                                                                p = input("Ingrese 0 si desea que su lápida sea privada, 1 si desea que sea pública ")
+                                                                print(t.selecPrivacidad)
+                                                                p = input()
                                                                 if p == "0":
-                                                                    print("---------------------------------------------------------------------------------------------")
+                                                                    print("--------------------------------------------------------------------------------------------------------")
                                                                     la = Lapida(v,True,ub,ep)
                                                                     cl = Cliente(nombre,d,fechaNac,contra,la)
                                                                     Lapida.leerLapida(la)
                                                                     break
                                                                 if p == "1":
-                                                                    print("-------------------------------------------------------------------------------------------------------")
+                                                                    print("--------------------------------------------------------------------------------------------------------")
                                                                     la = Lapida(v,False,ub,ep)
                                                                     cl = Cliente(nombre,d,fechaNac,contra,la)
                                                                     Lapida.leerLapida(la)
                                                                     break
-                                                                print("Ingrese una opción valida por favor")
+                                                                print(t.datoInvalido)
                                                             break
                                                         
                                                         else:
-                                                            print("Esta ubicación ya se encuentra ocupada, selecciona una distinta por favor")                                                   
+                                                            print(t.lapidaOcupada)                                                   
                                                         break    
                                                     else:
-                                                        print("Ingresa una ubicación valida ")
+                                                        print(t.ubicacionInvalida)
                                                     break
                                                 else:
-                                                    print("Ingrese un número por favor ")
+                                                    print(t.noNumerico)
                                             break
                                         else:
-                                            print("Ingrese una contraseña válida ")
+                                            print(t.contrasenaInvalida)
                                 else:
-                                    print("Ya tienes una lapida ")
+                                    print(t.lapidaAntesCreada)
                             elif ac == "2":
-                                print("CREACION DE MEMORIA/////////////////////////////////////////////////////////////")
+                                print(""+"\n"+"///////////////////////////////////////////CREACION DE MEMORIA///////////////////////////////////////////"+"\n"+"") #Nuevamente los dejo porque me parece que son puntos de referencia en el código.
                                 while True:
-                                    l = Lapida.buscarLapida(input("Ingrese el documento de la persona propietaria de la lapida donde va a dejar la memoria "))
+                                    print(t.propietarioLap)
+                                    l = Lapida.buscarLapida(input())
                                     if l is not None:
                                         if l.getPrivacidad():
-                                            print("Esta lápida es privada. No puedes leer/escribir memorias.")
+                                            print(t.lapidaPrivada)
                                             break
                                         else:
                                             while True:
-                                                de = input("Ingrese la descripcion de la memoria por favor ")
+                                                print(t.lapidaPrivada)
+                                                de = input()
                                                 if de is not "":
                                                     me = Memoria(v,de,l)
                                                     l.memorias.append(me)
                                                     me.imprimirDatosMemoria()
                                                     break
                                                 else:
-                                                    print("No puede haber una memoria sin descripcion")
+                                                    print(t.noDescripcion)
                                             break
                                     else:
-                                        print("No hay ninguna persona con ese documento que tenga una lapida")
+                                        print(t.noDocumentoLap)
 
                             elif ac == "3":
                                 Persona.verLapida()
@@ -140,45 +163,51 @@ if __name__ == '__main__':
                                 break
 
                             elif ac == "5":
-                                print("El programa ha finalizado ")
+                                print(t.exit)
                                 sys.exit()
 
                             else:
-                                print("Ingrese un numero valido por favor")
+                                print(t.datoInvalido)
 
                     if e == "0":
                         break
 
                     else:
-                        print("Ingrese un numero valido por favor")
+                        print(t.datoInvalido)
 
             else:
                 if m is not None and c is not None:
                     while True:
-                        e = input("Ingrese 1 para entrar a su perfil de moderador, 2 para su perfil de cliente, y 3 para ingresar con un documento distinto. ")
+                        print(t.modOrClient)
+                        e = input()
                         if e == "1":
                             while True:
-                                c = input("Ingrese la contraseña de este perfil ")
+                                print(t.ingresoContrasena)
+                                c = input()
                                 if c == m.getContrasenaModerador():
                                     m.imprimirDatosModerador()
                                     while True:
-                                        ac = input("Ingrese el número de la acción a realizar: 1.Registrar nuevo moderador 2.Borrar memoria 3.Registrar defunción de un cliente 4.Cambiar contraseña 5.Ver clientes totales 6.Ver moderadores totales 7.Ver visitantes totales 8.Ingresar con otro perfil 9.Salir  " )
+                                        print(t.selecMenu)
+                                        ac = input()
                                         if ac == "1":
                                             while True:
-                                                documento = input("Ingrese el documento de el nuevo moderador ")
+                                                documento = input(t.docModerador)
                                                 if documento.isdigit():
                                                     if Moderador.comprobarDocumentoModerador(documento) is None:
-                                                        nombre = input("Ingrese el nombre completo de el nuevo moderador ")                             
-                                                        fechaNac = input("Ingrese la fecha de nacimiento de el nuevo moderador en el formato dd/mm/aaaa ")
-                                                        contrasena = input("Ingrese la contraseña de la cuenta de el nuevo moderador ")
+                                                        print(t.nombreModerador)
+                                                        nombre = input()  
+                                                        print(t.fnModerador)                           
+                                                        fechaNac = input()
+                                                        print(t.contrasenaModerador)
+                                                        contrasena = input()
                                                         mod = Moderador(nombre,documento,fechaNac,contrasena)
-                                                        print("NUEVO MODERADOR CREADO:  ----------------------------------")
+                                                        print("-------------------------------------NUEVO MODERADOR CREADO-------------------------------------")
                                                         Moderador.imprimirDatosModerador(mod)
                                                         break
                                                     else:
-                                                        print("Ya existe un moderador registrado con este documento")
+                                                        print(t.existeMod)
                                                 else:
-                                                    print("Por favor ingrese un numero")
+                                                    print(t.noNumerico)
 
                                         elif ac == "2":
                                             while True:
@@ -222,9 +251,10 @@ if __name__ == '__main__':
                                                         break
 
                                         elif ac == "4":
-                                            a = input("Ingrese su nueva contraseña ")
+                                            print(t.crearContrasena)
+                                            a = input()
                                             m.setContrasena(a)
-                                            print("Su nueva contraseña es " + a)
+                                            print("Su nueva contraseña es: " + a)
                                         
                                         elif ac == "5":
                                             print("En total hay " + str(len(Cliente.clientes_totales)) + " clientes")
@@ -268,7 +298,7 @@ if __name__ == '__main__':
                         elif e == "3":
                             break
                         else:
-                            print("Ingrese un numero valido por favor")
+                            print(t.datoInvalido)
         else:
             print("Por favor ingrese un número ")
 
