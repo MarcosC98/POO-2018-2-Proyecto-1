@@ -131,7 +131,7 @@ if __name__ == '__main__':
 									l.leerLapida()
 									break
 								else:
-									print(noLapida)
+									print(t.noLapida)
 						if ac == "4":
 							e = "0"
 							break
