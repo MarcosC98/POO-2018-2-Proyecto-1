@@ -144,21 +144,21 @@ if __name__ == '__main__':
 					break
 
 				else:
-					print("Ingrese un numero valido por favor")
+					print(t.datoInvalido)
 
 		else:
 			if m is not None and c is not None:
 				while True:
-					print("Desea ingresar a su perfil de moderador o cliente ? 1.Moderador 2.Cliente ")
+					print(t.modOrClient)
 					e = input()
 					if e == "1":
 						while True:
-							print("Ingrese la contraseña de este perfil ")
+							print(t.ingresoContrasena)
 							c = input()
 							if c == m.getContrasenaModerador():
 								m.imprimirDatosModerador()
 								while True:
-									print("Ingrese el número de la acción a realizar: 1.Registrar nuevo moderador 2.Borrar memoria 3.Registrar defunción de un cliente 4.Cambiar contraseña 5.Ver numero total de clientes 6.Ver numero total de moderadores 7.Ver numero total de visitantes 8.Ingresar con otro perfil 9.Salir  " )
+									print(t.selecMenu)
 									ac = input()
 									if ac == "1":
 										while True:

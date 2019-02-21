@@ -55,7 +55,8 @@ class Texto:
 			self.lapidaInvalida = ""+"\n"+"No hay ninguna persona con ese documento que tenga una lapida."
 			self.ingresoPropietario = ""+"\n"+"Ingrese el documento de la persona propietaria de la lapida que desea leer: "
 			self.noLapida = ""+"\n"+"No hay ninguna persona con ese documento que tenga una lapida."
-
+			self.modOrClient = ""+"\n"+"¿Desea ingresar a su perfil de moderador o cliente?"+"\n"+"   1.Moderador"+"\n"+"   2.Cliente"
+			self.selecMenu = "Ingrese el número de la acción a realizar:"+"\n"+""+"\n"+"   1.Registrar nuevo moderador"+"\n"+"   2.Borrar memoria."+"\n"+"   3.Registrar defunción de un cliente."+"\n"+"   4.Cambiar contraseña."+"\n"+"   5.Ver numero total de clientes."+"\n"+"   6.Ver numero total de moderadores."+"\n"+"   7.Ver numero total de visitantes"+"\n"+"   8.Ingresar con otro perfil."+"\n"+"   9.Salir." 
 			
 		else:
 			self.datoInvalido = ""+"\n"+"El dato ingresado es inválido."
@@ -77,6 +78,8 @@ class Texto:
 			self.lapidaInvalida = ""+"\n"+"There is no person with that document who has a tombstone."
 			self.ingresoPropietario = ""+"\n"+"Enter the document of the person who owns the tombstone you want to read: "
 			self.noLapida = ""+"\n"+"There is no person with that document who has a tombstone."
+			self.modOrClient = ""+"\n"+"Do you want to enter your moderator or client profile?"+"\n"+"   1.Moderator"+"\n"+"   2.Client"
+			self.selecMenu = "Choose one of the follow options: "+"\n"+""+"\n"+"   1.Register a new Moderator."+"\n"+"   2.Delete Memory."+"\n"+"   3.Record the death of a client."+"\n"+"   4.Cambiar contraseña."+"\n"+"   5.See amount of clients."+"\n"+"   6.See amount of moderators."+"\n"+"   7.See amount of visitors"+"\n"+"   8.Enter with other profile."+"\n"+"   9.Game Over." 
 
 
 
