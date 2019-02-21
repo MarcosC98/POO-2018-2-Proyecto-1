@@ -36,11 +36,25 @@ class Texto:
 	def __init__(self,idiom):
 
 		if idiom=="1":
+			self.datoInvalido = ""+"\n"+"El dato ingresado es inválido."
 			self.introDoc = ""+"\n"+"Por favor ingrese su documento: "
 			self.noRegistra = ""+"\n"+"Su número de identidad no se encuentra registrado."
 			self.seleccionUno = ""+"\n"+"Si desea intentar nuevamente con otro documento ingrese 0."+"\n"+"Si desea crear una cuenta nueva con este documento ingrese 1."+"\n"+""
 			self.entradaNombre = ""+"\n"+"Ingrese su nombre completo: "
 			self.entradaFechaNac = ""+"\n"+"Ingrese su fecha de Nacimiento: "
+			self.selecOpcion = ""+"\n"+"Ingrese el número de la acción a realizar:"+"\n"+" "+"\n"+"  1.Adquirir Lápida."+"\n"+"  2.Escribir Memoria "+"\n"+"  3.Leer Lápida "+"\n"+"  4.Ingresar con otro perfil "+"\n"+"  5.Salir "
+			self.ingresoEpitafio = ""+"\n"+"Ingrese el epitafio que desea en su lapida: "
+			self.ingresoContrasena = ""+"\n"+"Ingrese la contraseña que usará en su cuenta: "
+			self.ingresoUbicacion = ""+"\n"+"Ingrese la úbicación de su lápida: "
+			self.selecPrivacidad = ""+"\n"+"Ingrese 0 si desea que su lápida sea privada"+"\n"+"Ingrese 1 si desea que sea pública "
+			self.lapidaOcupada = ""+"\n"+"Esta ubicación ya se encuentra ocupada, selecciona una distinta por favor."
+			self.lapidaAntesCreada = ""+"\n"+"Ya tienes una lapida creada."
+			self.propietarioLap = ""+"\n"+"Ingrese el documento de la persona propietaria de la lapida donde va a dejar la memoria: "
+			self.lapidaPrivada = ""+"\n"+"Esta lápida es privada. No puedes leer/escribir memorias."
+			self.ingMemoria = ""+"\n"+"Ingrese la descripcion de la memoria por favor: "
+			self.lapidaInvalida = ""+"\n"+"No hay ninguna persona con ese documento que tenga una lapida."
+			self.ingresoPropietario = ""+"\n"+"Ingrese el documento de la persona propietaria de la lapida que desea leer: "
+			self.noLapida = ""+"\n"+"No hay ninguna persona con ese documento que tenga una lapida."
 			self.metodo = ""+"\n"+""
 			self.metodo = ""+"\n"+""
 			self.metodo = ""+"\n"+""
@@ -49,14 +63,10 @@ class Texto:
 			self.metodo = ""+"\n"+""
 			self.metodo = ""+"\n"+""
 			self.metodo = ""+"\n"+""
-			self.metodo = ""+"\n"+""
-			self.metodo = ""+"\n"+""
-			self.metodo = ""+"\n"+""
-			self.metodo = ""+"\n"+""
-			self.metodo = ""+"\n"+""
-			self.metodo = ""+"\n"+""
+
 			
 		else:
+			self.datoInvalido = ""+"\n"+"El dato ingresado es inválido."
 			self.introDoc = ""+"\n"+"Please enter you id number: "
 			self.noRegistra = ""+"\n"+"There isn't any registered account with that id number."
 			self.seleccionUno = ""+"\n"+"If you want to try again with another document, enter 0."+"\n"+"If you want to create a new account with this document, enter 1."+"\n"+""

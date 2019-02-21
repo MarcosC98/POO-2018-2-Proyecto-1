@@ -71,22 +71,22 @@ if __name__ == '__main__':
 					v = Persona(nombre,d,fechaNac)
 					v.imprimirDatosPersona()
 					while True:
-						print("Ingrese el número de la acción a realizar: 1.Adquirir Lápida 2.Escribir Memoria 3.Leer Lápida 4.Ingresar con otro perfil 5.Salir ")
+						print(t.selecOpcion) 
 						ac = input()
 						if ac == "1":
 							if Cliente.comprobarDocumentoCliente(d) is None:
-								print("CREACION DE LAPIDA///////////////////////////////////////////////////////////////")
-								print("Ingrese el epitafio que desea en su lapida ")
+								print("///////////////////////////////////////////CREACION DE LAPIDA///////////////////////////////////////////") #Dejo este print porque me parece que hace el texto más legible.
+								print(t.ingresoEpitafio)
 								ep = input()
-								print("Ingrese la contraseña que usará en su cuenta ")
+								print(t.ingresoContrasena)
 								contra = input()
 								while True:
-									print("Ingrese la úbicación de su lápida ")
+									print(t.ingresoUbicacion)
 									u = input()
 									if Ubicacion.revisarDisponibilidadUbicacion(u):
 										ub = Ubicacion(u)
 										while True:
-											print("Ingrese 0 si desea que su lápida sea privada, 1 si desea que sea pública ")
+											print(t.selecPrivacidad)
 											p = input()
 											if p == "0":
 												la = Lapida(v,True,ub,ep)
@@ -98,39 +98,40 @@ if __name__ == '__main__':
 												cl = Cliente(nombre,d,fechaNac,contra,la)
 												Lapida.leerLapida(la)
 												break
-											print("Ingrese un numero valido por favor")
+											print(t.datoInvalido)
 										break
 									else:
-										print("Esta ubicación ya se encuentra ocupada, selecciona una distinta por favor")
+										print(t.lapidaOcupada)
 							else:
-								print("Ya tienes una lapida creada")
+								print(t.lapidaAntesCreada)
 						if ac == "2":
-							print("CREACION DE MEMORIA/////////////////////////////////////////////////////////////")
+							print(""+"\n"+"///////////////////////////////////////////CREACION DE MEMORIA///////////////////////////////////////////"+"\n"+"") #Nuevamente los dejo porque me parece que son puntos de referencia en el código.
 							while True:
-								l = Lapida.buscarLapida(input("Ingrese el documento de la persona propietaria de la lapida donde va a dejar la memoria "))
+								print(t.propietarioLap)
+								l = Lapida.buscarLapida(input())
 								if l is not None:
 									if l.getPrivacidad():
-										print("Esta lápida es privada. No puedes leer/escribir memorias.")
+										print(t.lapidaPrivada)
 										break
 									else:
-										print("Ingrese la descripcion de la memoria por favor ")
+										print(t.ingMemoria)
 										de = input()
 										me = Memoria(v,de,l)
 										l.memorias.append(me)
 										me.imprimirDatosMemoria()
 										break
 								else:
-									print("No hay ninguna persona con ese documento que tenga una lapida")
+									print(t.lapidaInvalida)
 
 						if ac == "3":
 							while True:
-								print("Ingrese el documento de la persona propietaria de la lapida que desea leer ")
+								print(t.ingresoPropietario)
 								l = Lapida.buscarLapida(input())
 								if l is not None:
 									l.leerLapida()
 									break
 								else:
-									print("No hay ninguna persona con ese documento que tenga una lapida")
+									print(noLapida)
 						if ac == "4":
 							e = "0"
 							break
