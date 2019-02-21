@@ -1,4 +1,5 @@
 class Ubicacion:
+	
 	ubicaciones_disponibles=50
 	ubicaciones_totales = []
 	indices_usados = []
