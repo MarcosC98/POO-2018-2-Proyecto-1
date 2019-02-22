@@ -96,15 +96,20 @@ class Persona:
                             documento = input(t.docModerador)
                             if documento.isdigit():
                                 if Moderador.comprobarDocumentoModerador(documento) is None:
-                                    print(t.nombreModerador)
-                                    nombre = input()  
-                                    print(t.fnModerador)                           
-                                    fechaNac = input()
-                                    print(t.contrasenaModerador)
-                                    contrasena = input()
-                                    mod = Moderador(nombre,documento,fechaNac,contrasena)
-                                    print("-------------------------------------NUEVO MODERADOR CREADO-------------------------------------")
-                                    Moderador.imprimirDatosModerador(mod)
+                                    while True:
+                                        print(t.nombreModerador)
+                                        nombre = input()  
+                                        print(t.fnModerador)                           
+                                        fechaNac = input()
+                                        print(t.contrasenaModerador)
+                                        contrasena = input()
+                                        if nombre is not "" and fechaNac is not "" and contrasena is not "":
+                                            mod = Moderador(nombre,documento,fechaNac,contrasena)
+                                            print("-------------------------------------NUEVO MODERADOR CREADO-------------------------------------")
+                                            Moderador.imprimirDatosModerador(mod)
+                                            break
+                                        else:
+                                            print("Por favor ingrese la información completa ")
                                     break
                                 else:
                                     print(t.existeMod)
@@ -132,19 +137,30 @@ class Persona:
                             else:
                                 l = c.getLapida()
                                 if l.getFechaDef() is "":
-                                    print()
-                                    fd = input()
-                                    l.setFechaDef(fd)
+                                    while True:
+                                        print("Ingrese la fecha de defunción")
+                                        fd = input()
+                                        if fd is not "":
+                                            l.setFechaDef(fd)
+                                            print("Se registró la defunción del cliente")
+                                            break
+                                        else:
+                                            print("La fecha de defuncion no puede estar vacía")
                                     break
                                 else:
                                     print(t.yaDifunto)
                                     break
 
                     elif ac == "4":
-                        print(t.crearContrasena)
-                        a = input()
-                        m.setContrasena(a)
-                        print(t.textNuevaContraseña + a)
+                        while True:
+                            print(t.crearContrasena)
+                            a = input()
+                            if a is not "":
+                                m.setContrasena(a)
+                                print(t.textNuevaContraseña + a)
+                                break
+                            else:
+                                print("La contraseña no puede estar vacía ")
                     
                     elif ac == "5":
                         print(t.total + str(len(Cliente.clientes_totales)) + t.clientes)

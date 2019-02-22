@@ -34,4 +34,4 @@ class Moderador(Persona):
 		print("-----------------------------------------------------------------------------------")
 
 	def setContrasena(self,contrasena):
-		self.contrasena = contrasena
+		self._contrasena = contrasena
