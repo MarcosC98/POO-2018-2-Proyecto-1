@@ -83,6 +83,9 @@ class Persona:
         from Cliente import Cliente
         from Moderador import Moderador
         from Ubicacion import Ubicacion
+        from Textos import Texto
+        
+        
         while True:
             print(t.ingresoContrasena)
             c = input()
@@ -170,9 +173,9 @@ class Persona:
                         break
 
                     elif ac == "9":
-                        print("Las ubicaciones ocupadas son : ")
+                        print(t.ingresoLapida)
                         for u in Ubicacion.indices_usados:
-                            print(u)
+                            print(t.ubicadas)
 
                     elif ac == "10":
                         sys.exit()
@@ -189,6 +192,8 @@ class Persona:
         from Cliente import Cliente
         from Moderador import Moderador
         from Ubicacion import Ubicacion
+        from Textos import Texto
+
         while True:
             print(t.ingresoContrasena)
             contra = input()
@@ -197,30 +202,31 @@ class Persona:
                 lapida = c.getLapida()
                 lapida.leerLapida()
                 while True:
-                    ac = input("Ingrese el número de la acción a realizar 1.Cambiar epitafio 2.Cambiar ubicación 3.Cambiar contraseña 4.Ingresar Memoria 5.Leer Lapida 6.Eliminar memoria de mi lapida 7.Cambiar privacidad 8.Ingresar con un perfil distinto 9. Salir")
+                    ac = input(t.selecTres)
                     if ac == "1":
-                        epitafio = input("Ingrese el nuevo epitafio ")
+                        epitafio = input()
                         lapida.setEpitafio(epitafio)
-                        print("Su epitafio es " + epitafio)
+                        print(t.suEpitafio + epitafio)
                     elif ac == "2":
                         while True:
-                            ubicacion = input("Ingrese su nueva ubicación")
+                            print(t.nuevaUbicacion)
+                            ubicacion = input()
                             if ubicacion.isdigit():
                                 while True:
                                     if int(ubicacion) <= 50 and not 0:
                                         if Ubicacion.revisarDisponibilidadUbicacion(ubicacion):
                                             ubi = Ubicacion(ubicacion)
                                             lapida.setUbicacion(ubi)
-                                            print("Su nueva ubicación es en " + ubicacion)
+                                            print(t.suNUbicacion + ubicacion)
                                             break                                                 
                                         else:
-                                            print("Esta ubicación no está disponible")
+                                            print(t.ubicacionNoDisponible)
                                     else:
-                                        print("Debe ingresar un numero entre 1 y 50")
+                                        print(t.indiceUbicacion)
                                         break
                                 break
                             else:
-                                print("Por favor ingrese un numero")
+                                print(t.ingresoNumero)
                     elif ac == "3":
                         print(t.crearContrasena)
                         a = input()
@@ -235,19 +241,19 @@ class Persona:
                     elif ac == "7":
                         if lapida.getPrivacidad():
                             lapida.setPrivacidad(False)
-                            print("Ahora su lapida es publica")
+                            print(t.lapidaPublica)
                         else:
                             lapida.setPrivacidad(True)
-                            print("Ahora su lapida es privada")
+                            print(t.lapidaPrivada)
                     elif ac == "8":
                         break
                     elif ac == "9":
                         sys.exit()
                     else:
-                        print("Ingrese un numero valido por favor")
+                        print(t.datoInvalido)
                 break
             else:
-                print("La contraseña es incorrecta")
+                print(t.contrasenaInvalida)
 
 
 
@@ -344,7 +350,7 @@ if __name__ == '__main__':
                                                                                 print(t.lapidaOcupada)                                                   
                                                                             break
                                                                         else:
-                                                                            print("Debe ingresar un numero entre 1 y 50. Por esto no se pudo completar la creación de lapida") 
+                                                                            print() 
                                                                             break
                                                                     break
                                                                 else:
@@ -372,10 +378,10 @@ if __name__ == '__main__':
                                                 print(t.datoInvalido)
                                         break
                                     else:
-                                        print("Fecha de nacimiento no puede estar vacía")
+                                        print(t.fnVacia)
                                 break
                             else:
-                                print("Nombre no puede estar vacio ")
+                                print(t.nombreVacio)
 
                     if e == "0":
                         break
