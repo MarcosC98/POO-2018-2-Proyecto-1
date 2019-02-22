@@ -1,4 +1,3 @@
-from Persona import Persona
 class Lapida:
 	lapidas_totales = []#Lista con todas las lápidas generadas	
 
@@ -33,7 +32,7 @@ class Lapida:
 				for m in self.memorias:
 					m.imprimirDatosMemoria()
 			else:
-				print("Esta lapida no tiene ninguna memoria escrita todavía")
+				print("Esta lapida no tiene ninguna memoria escrita ")
 		else:
 			print("Esta lápida es privada. No puedes leer/escribir memorias.")
 		print("---------------------------------------------------------------------------------------------------------------------------------")
@@ -88,6 +87,15 @@ class Lapida:
 
 	def getFechaDef(self):
 		return self._fechaDef
+
+	def setEpitafio(self,epitafio):
+		self._epitafio = epitafio
+
+	def setUbicacion(self,ubicacion):
+		self._ubicacion = ubicacion
+
+	def setPrivacidad(self,valor):
+		self._privacidad = valor
 
 
 	

@@ -1,4 +1,3 @@
-from Persona import Persona
 class Texto:
 
 	@staticmethod
@@ -53,6 +52,7 @@ class Texto:
 			self.contrasenaInvalida = ""+"\n"+"Ingrese una contraseña válida."
 			self.lapidaAntesCreada = ""+"\n"+"Ya tienes una lapida creada."
 			self.propLapDejarMemoria = ""+"\n"+"Ingrese el documento de la persona propietaria de la lapida donde va a dejar la memoria: "
+			self.propLapElimMemoria =  ""+"\n"+"Ingrese el documento de la persona propietaria de la lapida donde va a eliminar la memoria: "
 			self.lapidaPrivada = ""+"\n"+"Esta lápida es privada. No puedes leer/escribir memorias."
 			self.noDescripcion = ""+"\n"+"No puede haber una Memoria sin descripción."
 			self.noDocumentoLap = ""+"\n"+"No hay ninguna persona con ese documento que tenga una lapida."
@@ -62,7 +62,7 @@ class Texto:
 			self.ingresoPropietario = ""+"\n"+"Ingrese el documento de la persona propietaria de la lapida que desea leer: "
 			self.noLapida = ""+"\n"+"No hay ninguna persona con ese documento que tenga una lapida."
 			self.modOrClient = ""+"\n"+"¿Desea ingresar a su perfil de moderador o cliente?"+"\n"+"   1.Moderador"+"\n"+"   2.Cliente"+"\n"+"   3.Ingreso con otro Documento."
-			self.selecMenu = ""+"\n"+"Ingrese el número de la acción a realizar:"+"\n"+""+"\n"+"   1.Registrar nuevo moderador"+"\n"+"   2.Borrar memoria."+"\n"+"   3.Registrar defunción de un cliente."+"\n"+"   4.Cambiar contraseña."+"\n"+"   5.Ver numero total de clientes."+"\n"+"   6.Ver numero total de moderadores."+"\n"+"   7.Ver numero total de visitantes"+"\n"+"   8.Ingresar con otro perfil."+"\n"+"   9.Salir." 
+			self.selecMenu = ""+"\n"+"Ingrese el número de la acción a realizar:"+"\n"+""+"\n"+"   1.Registrar nuevo moderador"+"\n"+"   2.Borrar memoria."+"\n"+"   3.Registrar defunción de un cliente."+"\n"+"   4.Cambiar contraseña."+"\n"+"   5.Ver numero total de clientes."+"\n"+"   6.Ver numero total de moderadores."+"\n"+"   7.Ver numero total de visitantes"+"\n"+"   8.Ingresar con otro perfil."+"\n"+"   9.Revisar ubicaciones ocupadas "+ "\n" + "10.Salir ." 
 			self.ingresoContrasena = ""+"\n"+"Por favor ingrese su contraseña: "
 			self.docModerador = ""+"\n"+"Ingrese el documento del Moderador: "
 			self.nombreModerador = ""+"\n"+"Ingrese el nombre del Moderador: "
