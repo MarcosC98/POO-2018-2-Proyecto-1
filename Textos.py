@@ -18,7 +18,7 @@ class Texto:
 
 
 	def introduccion(idiom):
-		if(idiom==1):
+		if(idiom=="1"):
 			print("")
 			print("")
 			print("Behind Memories es una iniciativa para que las personas sean recordadas hasta el final de los tiempos.")
@@ -104,7 +104,7 @@ class Texto:
 			self.indiceUbicacion = ""+"\n"+"Debe ingresar un numero entre 1 y 50"
 			self.ingresoNumero = ""+"\n"+"Por favor ingrese un numero."
 			self.lapidaPublica = ""+"\n"+"Ahora su lápida es publica."
-			self.metodo = ""+"\n"+"Ahora su lápida es privada."
+			self.lapidaPrivada = ""+"\n"+"Ahora su lápida es privada."
 			self.metodo = ""+"\n"+""
 			self.metodo = ""+"\n"+""
 
@@ -179,7 +179,7 @@ class Texto:
 			self.indiceUbicacion = ""+"\n"+"You must enter a number between 1 and 50."
 			self.ingresoNumero = ""+"\n"+"Please enter a number: "
 			self.lapidaPublica = ""+"\n"+"Now his tombstone is public."
-			self.metodo = ""+"\n"+"Now his tombstone is private."
+			self.lapidaPrivada = ""+"\n"+"Now his tombstone is private."
 
 
 
